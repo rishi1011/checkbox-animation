@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.toggle-container{
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    font-size: 1.2rem;
+}
+
+input[type="checkbox"]{
+    height: 0;
+    width: 0;
+    position: absolute;
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: #19bc8b;
+}
+
+label{
+    width: 80px;
+    height: 40px;
+    background-color: #aaa;
+    cursor: pointer;
+    border-radius: 50px;
+    position: relative;
+}
+
+.ball{
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 2.5px;
+    left: 2.5px;
+    animation: slideOff 0.3s linear forwards;
+}
+
+input[type="checkbox"]:checked + label > .ball{
+    animation: slideOn 0.3s linear forwards;
+}
+
+@keyframes slideOff {
+    0% {
+        transform: translateX(40px) scale(1);
+    }
+
+    50% {
+        transform: translateX(20px) scale(1.1);
+    }
+
+    100% {
+        transform: translateX(0px) scale(1);
+    }
+}
+
+@keyframes slideOn {
+    0%{
+        transform: translateX(0) scale(1);
+    }
+    50%{
+        transform: translateX(20px) scale(1.1);
+    }
+    100%{
+        transform: translateX(40px) scale(1);
+    }
+}
